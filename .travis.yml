@@ -4,7 +4,6 @@ deploy:
   #
   provider: script
   skip_cleanup: true
-  script: ./scripts/deploy.sh
   on:
     branch: master
     php: 7.0
