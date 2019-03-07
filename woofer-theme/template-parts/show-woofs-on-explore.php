@@ -32,7 +32,7 @@
               <button data-authid="<?php echo the_author_id();?>" class="unsub-btn" style="display:none;" style="padding:5px;background-color:blue;width:81px;color:white;border-radius:5px;">Un-leash
               </button>
             <?php endif; ?>
-         <?php endif; ?>
+          <?php endif; ?>
         </div>
         </div>
         <?php endwhile;
