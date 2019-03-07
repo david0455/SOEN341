@@ -310,7 +310,7 @@ add_action('wp_ajax_nopriv_woof_ajax_like', 'woof_ajax_like');
 
 function woof_ajax_like(){
 
-	$postid = $_GET[""postid""];
+	$postid = $_GET["postid"];
 	$current_user = wp_get_current_user();
 	$currID = $current_user->ID;
 
