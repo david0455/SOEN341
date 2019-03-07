@@ -326,7 +326,7 @@ add_action('wp_ajax_nopriv_woof_ajax_unlike', 'woof_ajax_unlike');
 
 function woof_ajax_unlike(){
 
-	$postid = $_GET[""postid""];
+	$postid = $_GET["postid"];
 	$current_user = wp_get_current_user();
 	$currID = $current_user->ID;
 
