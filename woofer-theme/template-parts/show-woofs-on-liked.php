@@ -18,7 +18,8 @@
                 <?php echo the_content(); ?>
               </div>
             </div>
-            <div>            <!-- check which btn needs to be printed out, the follow or the unfollow -->
+            <div>
+            <!-- check which btn needs to be printed out, the follow or the unfollow -->
             <?php
             $current_user = wp_get_current_user();
             $currID = $current_user->ID;
