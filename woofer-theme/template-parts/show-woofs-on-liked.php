@@ -12,6 +12,13 @@
       if ( $loop->have_posts() ) :
           while ( $loop->have_posts() ) : $loop->the_post(); ?>
           <div style="border:1px solid black;margin:75px;padding:20px;">
+            <?php if(get_user_meta(get_the_author_meta('ID') ,'profilepic')):?>
+            <div style="margin:50px;border-radius:50px;width:75px;height:75px;display:inline-block;vertical-align:top;">
+              <?php
+              echo wp_get_attachment_image(get_user_meta(get_the_author_meta('ID') ,'profilepic')[0]);
+              ?>
+            </div>
+          <?php endif; ?>
             <div style="margin:20px;font-weight:600;color:red;display:inline-block;vertical-align:top;">
               <?php echo the_author_nickname(); ?>
               <div style="color:black;font-weight:400;">
