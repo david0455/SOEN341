@@ -1,36 +1,20 @@
 <?php
 /*
 *
-* Template Name: profile
+* Template Name: login
 *
 *
 */
 get_header();
 ?>
-<?php if(is_user_logged_in()):?>
-  <h1 style="margin:50px;">
-    Post a woof
-  </h1>
-  <form method="POST" style=padding:50px;>
-      <label>Woof :</label>
-      <textarea value="" rows="3" class="input-xlarge" name='text'>
 
-      </textarea>
+<h1 style="margin:100px;">
+  Login
+</h1>
 
-      <div>
-        <button class="btn btn-primary">Woof!</button>
-      </div>
-      <input type="hidden" name="action" value="woof" />
-   </from>
-<?php else: ?>
-  <h1 style="margin:50px;">
-    You need to login !!
-  </h1>
-
-<?php endif;?>
-
-
+<div style="margin:50px;">
 <?php
-get_footer();
-?>
+ woof_custom_login();
 
+?>
+</div>
