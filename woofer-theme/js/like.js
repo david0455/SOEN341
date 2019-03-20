@@ -10,7 +10,7 @@ $(document).ready(function(){
   $('.like').click(function(){
     var btn = $(this);
     var data = {
-            action : ""woof_ajax_like"",
+            action : "woof_ajax_like",
             postid: btn.data('postid')
         };
         $.ajax({
@@ -26,8 +26,9 @@ $(document).ready(function(){
 
   $('.unlike').click(function(){
     var btn = $(this);
+    var counter = $('#like-counter');
     var data = {
-            action : ""woof_ajax_unlike"",
+            action : "woof_ajax_unlike",
             postid: btn.data('postid')
         };
         $.ajax({
@@ -42,4 +43,3 @@ $(document).ready(function(){
   });
 
 });
-

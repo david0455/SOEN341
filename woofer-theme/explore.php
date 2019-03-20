@@ -9,11 +9,16 @@ $current_user = wp_get_current_user();
 $currID = $current_user->ID;
 get_header();
 ?>
-<h1 style="margin:100px;">
-  Displaying all woofs ever
-</h1>
+<div class="woof-main-content">
+  <h1 class="woofer-page-title">
+    Explore
+  </h1>
+  <?php echo get_template_part( '/template-parts/show-woofs-on-explore' ); ?>
+</div>
+<div class="woof-sidebar">
+  <?php echo get_template_part( '/template-parts/good-boy-of-the-day' ); ?>
 
-<?php echo get_template_part( 'show-woofs-on-explore.php' ); ?>
+</div>
 
 <?php
 get_footer();

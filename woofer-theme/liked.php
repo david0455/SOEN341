@@ -8,16 +8,21 @@
 get_header();
 ?>
 <?php if(is_user_logged_in()):?>
-  <h2 style="margin:50px;margin-top:200px;">
+  <div class="woof-main-content full">
+  <h1 class="woofer-page-title">
     Displaying the woofs I gave a bone to.
-  </h2>
+  </h1>
+  <div class="woof-main-content full">
 
-<?php echo get_template_part( 'show-woofs-on-liked.php' ); ?>
+<?php echo get_template_part( '/template-parts/show-woofs-on-liked' ); ?>
 
   <?php else: ?>
-  <h1 style="margin:50px;">
+    <div class="woof-main-content full">
+
+  <h2 class="woofer-page-title">
     You need to login !!
-  </h1>
+  </h2>
+  <div class="woof-main-content full">
 
 <?php endif;?>
 

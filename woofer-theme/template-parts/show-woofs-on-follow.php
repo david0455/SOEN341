@@ -17,24 +17,35 @@ foreach($usersfollowing[0] as $user){
     $loop = new WP_Query( array( 'post_type' => 'woof','posts_per_page'=>200,'author__in'=> $autharr) );
     if ( $loop->have_posts() ) :
         while ( $loop->have_posts() ) : $loop->the_post(); ?>
-        <div style="border:1px solid black;margin:75px;padding:20px;">
+        <div class="woof-container">
           <?php if(get_user_meta(get_the_author_meta('ID') ,'profilepic')):?>
-            <div style="margin:50px;border-radius:50px;width:75px;height:75px;display:inline-block;vertical-align:top;">
+            <div class="profile-pic-container">
               <?php
               echo wp_get_attachment_image(get_user_meta(get_the_author_meta('ID') ,'profilepic')[0]);
               ?>
             </div>
           <?php endif; ?>
-          <div style="margin:20px;font-weight:600;color:red;display:inline-block;vertical-align:top;>
+          <div class="woof-content-container">
             <?php echo the_author_nickname(); ?>
-            <div style="color:black;font-weight:400;>
+            <div style="color:black;font-weight:400;">
               <?php echo the_content(); ?>
+              <div class="like-counter" id="like-counter">
+                <?php
+                $nblikes = get_post_meta(get_the_ID(),'nblikes',true);
+                if($nblikes){
+                  echo $nblikes;
+                }else{
+                  echo 0;
+                }
+                ?>
+              </div>
+
             </div>
-          </div>
+
           <div>
-          <button data-authid="<?php echo the_author_id();?>" class="sub-btn" style="display:none;padding:5px;background-color:blue;width:81px;color:white;border-radius:5px;">Tail
+          <button data-authid="<?php echo the_author_id();?>" class="sub-btn" style="display:none;">Tail
           </button>
-          <button data-authid="<?php echo the_author_id();?>" class="unsub-btn" style="padding:5px;background-color:blue;width:81px;color:white;border-radius:5px;">Un-leash
+          <button data-authid="<?php echo the_author_id();?>" class="unsub-btn">Un-leash
           </button>
           <!-- check which btn needs to be printed out, the like or the unlike -->
           <?php
@@ -46,21 +57,22 @@ foreach($usersfollowing[0] as $user){
             }
           }
           if($inarr): ?>
-            <img src="<?php echo get_template_directory_uri()?>/images/bone-hollow.png" data-postid="<?php echo the_ID();?>" class="like" width="40px" height="40px" style="float:right;margin:-6px;display:none;"></img>
-            <img src="<?php echo get_template_directory_uri()?>/images/bone-filled.png" data-postid="<?php echo the_ID();?>" class="unlike" width="50px" height="25px" style="float:right;margin:0px;"></img>
+            <img src="<?php echo get_template_directory_uri()?>/images/bone-hollow.png" data-postid="<?php echo the_ID();?>" class="like" width="40px" height="40px" style="display:none;"></img>
+            <img src="<?php echo get_template_directory_uri()?>/images/bone-filled.png" data-postid="<?php echo the_ID();?>" class="unlike" width="50px" height="25px" ></img>
           <?php else: ?>
-            <img src="<?php echo get_template_directory_uri()?>/images/bone-hollow.png" data-postid="<?php echo the_ID();?>" class="like" width="40px" height="40px" style="float:right;margin:-6px;"></img>
-            <img src="<?php echo get_template_directory_uri()?>/images/bone-filled.png" data-postid="<?php echo the_ID();?>" class="unlike" width="50px" height="25px" style="float:right;margin:0px;display:none;"></img>
+            <img src="<?php echo get_template_directory_uri()?>/images/bone-hollow.png" data-postid="<?php echo the_ID();?>" class="like" width="40px" height="40px" ></img>
+            <img src="<?php echo get_template_directory_uri()?>/images/bone-filled.png" data-postid="<?php echo the_ID();?>" class="unlike" width="50px" height="25px" style="display:none;"></img>
           <?php endif; ?>
-         </div>
+        </div>
       </div>
+    </div>
         <?php endwhile;
     endif;
     wp_reset_postdata();
 ?>
 
 <?php else: ?>
-  <h2 style="margin:50px;">
+  <h2 class="woofer-page-title">
     You're not tailing anyone !!
   </h2>
 <?php endif ?>

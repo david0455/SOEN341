@@ -29,11 +29,11 @@ if ( isset( $_POST['html-upload'] ) && !empty( $_FILES ) ) {
 
 ?>
 <?php if(is_user_logged_in()):?>
-
-<h1 style="margin:100px;">
-  Current profile picture :
-</h1>
-<div style="margin:100px;border-radius:50px;width:75px;height:75px;margin-top:0px;">
+<div class="woof-main-content full">
+  <h1 class="woofer-page-title">
+    Current profile picture :
+  </h1>
+  <div class="profile-pic-container bestwoof">
 <?php if(get_user_meta($currID,'profilepic')){
   echo wp_get_attachment_image(get_user_meta($currID,'profilepic')[0]);
 }
@@ -44,7 +44,7 @@ if ( isset( $_POST['html-upload'] ) && !empty( $_FILES ) ) {
 
     <p id="async-upload-wrap"><label for="async-upload">Change profile pictre :</label>
       <br>
-    <input style="margin:20px;" type="file" id="async-upload" name="async-upload"><br> <input style="margin:20px;" type="submit" value="Update" name="html-upload"></p>
+    <input style="margin:20px;" type="file" id="async-upload" name="async-upload"><br> <input style="margin:20px;" type="submit" value="Update" name="html-upload" class="sub-btn bestwoof"></p>
 
     <p><input type="hidden" name="post_id" id="post_id" value="<?php echo $post_id ?>" />
     <?php wp_nonce_field('client-file-upload'); ?>
@@ -53,8 +53,14 @@ if ( isset( $_POST['html-upload'] ) && !empty( $_FILES ) ) {
     <p><input type="submit" value="Save all changes" name="save" style="display: none;"></p>
     </form>
 <?php else: ?>
-  <h1 style="margin:50px;">
+  <div class="woof-main-content full">
+    <h1 class="woofer-page-title">
     You need to login !!
   </h1>
-
+</div>
 <?php endif;?>
+
+
+<?php
+get_footer();
+?>
