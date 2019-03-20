@@ -128,7 +128,7 @@ function auto_login_new_user( $user_id )
 {
         wp_set_current_user($user_id);
         wp_set_auth_cookie($user_id);
-        wp_redirect('https://orphic.ca/soen341/login/');
+        wp_redirect('https://orphic.ca/soen341/explore/');
 }
 add_action('user_register', 'auto_login_new_user');
 

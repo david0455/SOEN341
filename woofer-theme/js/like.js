@@ -11,6 +11,8 @@ $(document).ready(
         $('.like').click(
             function () {
                 var btn = $(this);
+                var likes = $('#like-counter');
+                var likenb = parseInt(likes) + 1;
                 var data = {
                     action : "woof_ajax_like",
                     postid: btn.data('postid')
@@ -22,6 +24,7 @@ $(document).ready(
                         success : function (response) {
                             btn.hide();
                             btn.next().show();
+                            likes.html(toString(likenb));
                         }
                     }
                 );
@@ -32,7 +35,8 @@ $(document).ready(
         $('.unlike').click(
             function () {
                 var btn = $(this);
-                var counter = $('#like-counter');
+                var likes = $('#like-counter');
+                var likenb = parseInt(likes) - 1;
                 var data = {
                     action : "woof_ajax_unlike",
                     postid: btn.data('postid')
@@ -44,6 +48,7 @@ $(document).ready(
                         success : function (response) {
                             btn.hide();
                             btn.prev().show();
+                            likes.html(toString(likenb));
                         }
                     }
                 );
