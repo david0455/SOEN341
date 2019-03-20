@@ -7,11 +7,7 @@ Develop a Twitter-like web application with core features requested by users:
 - Follow a user
 
 *Additional Features*:
-- Direct messages between users 
-- Including hashtags in tweets and following hashtags
-- Tagging people in tweets
-- Implementing notifications for all of the above features
-- Post Videos/Pictures
+- Showcase best dog of the day
 - Profile Picture
 
 ## Project Description
@@ -29,10 +25,11 @@ Social media has taken over the Internet in the recent years, and as a result, o
 - Victor Tudoran | [VictorTudoran](https://github.com/VictorTudoran)
 - Wei-Cheng Su | [Weigiu](https://github.com/Weigiu)
 
-## Technologies/Resources (tentative)
+## Technologies/Resources
 - WordPress
 - HTML
 - CSS
 - JavaScript
 - PHP
-- Travis
+- Travis CI
+- PHP CodeSniffer
