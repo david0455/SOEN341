@@ -119,7 +119,7 @@ function register_a_user(){
 function auto_login_new_user( $user_id ) {
         wp_set_current_user($user_id);
         wp_set_auth_cookie($user_id);
-        wp_redirect( 'localhost:8888/woofer/login.php');
+        wp_redirect( 'https://orphic.ca/soen341/login/');
     }
 add_action( 'user_register', 'auto_login_new_user' );
 
@@ -159,7 +159,7 @@ require get_template_directory() . '/inc/woof-post-type.php';
 function woof_custom_login( $args = array() ) {
     $defaults = array(
         'echo' => true,
-        'redirect' => 'localhost:8888/woofer/login.php',
+        'redirect' => 'https://orphic.ca/soen341/login/',
         'form_id' => 'loginform',
         'label_username' => __( 'Username or Email Address' ),
         'label_password' => __( 'Password' ),
@@ -193,7 +193,7 @@ function woof_custom_login( $args = array() ) {
             ' . ( $args['remember'] ? '<p class="login-remember"><label><input name="rememberme" type="checkbox" id="' . esc_attr( $args['id_remember'] ) . '" value="forever"' . ( $args['value_remember'] ? ' checked="checked"' : '' ) . ' /> ' . esc_html( $args['label_remember'] ) . '</label></p>' : '' )
 						 . '
             <p class="login-submit">
-                <input type="submit" name="wp-submit" id="' . esc_attr( $args['id_submit'] ) . '" class="button button-primary" value="' . esc_attr( $args['label_log_in'] ) . '" />
+                <input type="submit" name="wp-submit" id="' . esc_attr( $args['id_submit'] ) . '" class="button button-primary sub-btn bestwoof" value="' . esc_attr( $args['label_log_in'] ) . '" />
                 <input type="hidden" name="redirect_to" value="' . esc_url( $args['redirect'] ) . '" />
             </p>
             ' . $login_form_bottom . '
@@ -319,6 +319,15 @@ function woof_ajax_like(){
 	array_push($liked,$postid);
 	update_user_meta($currID,'likedposts',$liked);
 
+	//update like counter on post
+	$nblikes = get_post_meta($postid,'nblikes',true);
+	if($nblikes){
+		$nblikes += 1;
+		update_post_meta($postid,'nblikes',$nblikes);
+	}else{
+		update_post_meta($postid,'nblikes',1);
+	}
+
 }
 
 add_action('wp_ajax_woof_ajax_unlike', 'woof_ajax_unlike');
@@ -336,6 +345,12 @@ function woof_ajax_unlike(){
 	delete_user_meta($currID,'likedposts');
 	update_user_meta($currID,'likedposts',$liked);
 
+	//update like counter on post
+	$nblikes = get_post_meta($postid,'nblikes',true);
+	if($nblikes){
+		$nblikes -= 1;
+		update_post_meta($postid,'nblikes',$nblikes);
+	}else{
+		update_post_meta($postid,'nblikes',0);
+	}
 }
-
-

@@ -126,6 +126,8 @@ function woofer_scripts() {
 
 	wp_enqueue_script( 'woofer-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+	wp_enqueue_script( 'woofer-animation', get_template_directory_uri() . '/js/animation.js', array(), '20151215', true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -179,3 +181,24 @@ function my_enqueue() {
 }
 add_action( 'wp_enqueue_scripts', 'my_enqueue' );
 
+/////////////////////////////////////////////////////////
+// Register the navigation menus
+/////////////////////////////////////////////////////////
+
+register_nav_menu("left_menu","Left Menu");
+
+
+/////////////////////////////////////////////////////////
+// Get the items in the navigation menu by the location
+/////////////////////////////////////////////////////////
+
+
+function get_nav_menu_items_by_location( $location, $args = [] ) {
+		//get all locations
+    $locations = get_nav_menu_locations();
+		//retrieve the one needed
+    $object = wp_get_nav_menu_object( $locations[$location] );
+    $menu_items = wp_get_nav_menu_items( $object->name, $args );
+		//returns array of objects
+    return $menu_items;
+}
