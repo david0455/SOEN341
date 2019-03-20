@@ -59,6 +59,16 @@ if(get_user_meta($currID, 'likedposts', true)) : ?>
               <button data-authid="<?php echo the_author_id();?>" class="unsub-btn" style="display:none;">Un-leash
               </button>
             <?php endif; ?>
+            <div class="like-counter" id="like-counter">
+              <?php
+              $nblikes = get_post_meta(get_the_ID(),'nblikes',true);
+              if($nblikes){
+                echo $nblikes;
+              }else{
+                echo 0;
+              }
+              ?>
+            </div>
             <img src="<?php echo get_template_directory_uri()?>/images/bone-hollow.png" data-postid="<?php echo the_ID();?>" class="like" width="40px" height="40px" style="display:none;"></img>
             <img src="<?php echo get_template_directory_uri()?>/images/bone-filled.png" data-postid="<?php echo the_ID();?>" class="unlike" width="50px" height="25px"></img>
           </div>
