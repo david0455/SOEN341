@@ -11,7 +11,7 @@
 
 ?>
 
-	</div><!-- #content -->
+    </div><!-- #content -->
 
 </div><!-- #page -->
 

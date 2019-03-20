@@ -14,10 +14,10 @@ get_header();
 </h1>
 
   <div style="margin:50px;">
-  <?php
-   woof_custom_login();
+    <?php
+    woof_custom_login();
 
-  ?>
+    ?>
   </div>
 </div>
 

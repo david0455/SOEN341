@@ -7,7 +7,7 @@
 */
 get_header();
 ?>
-<?php if(is_user_logged_in()):?>
+<?php if(is_user_logged_in()) :?>
   <div class="woof-main-content full">
 
   <h1 class="woofer-page-title">
@@ -24,7 +24,7 @@ get_header();
       <input type="hidden" name="action" value="woof" />
    </from>
 
-<?php echo get_template_part( '/template-parts/show-woofs-on-profile' ); ?>
+    <?php echo get_template_part('/template-parts/show-woofs-on-profile'); ?>
 </div>
 <?php else: ?>
   <div class="woof-main-content full">
