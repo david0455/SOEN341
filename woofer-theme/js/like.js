@@ -22,6 +22,9 @@ $(document).ready(
                         success : function (response) {
                             btn.hide();
                             btn.next().show();
+                            var likes = btn.siblings('#like-counter')[0];
+                            var likenb = parseInt(likes.innerHTML);
+                            likes.innerHTML = likenb + 1;
                         }
                     }
                 );
@@ -32,7 +35,6 @@ $(document).ready(
         $('.unlike').click(
             function () {
                 var btn = $(this);
-                var counter = $('#like-counter');
                 var data = {
                     action : "woof_ajax_unlike",
                     postid: btn.data('postid')
@@ -44,6 +46,9 @@ $(document).ready(
                         success : function (response) {
                             btn.hide();
                             btn.prev().show();
+                            var likes = btn.siblings('#like-counter')[0];
+                            var likenb = parseInt(likes.innerHTML);
+                            likes.innerHTML = likenb - 1;
                         }
                     }
                 );

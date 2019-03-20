@@ -169,7 +169,7 @@ function woof_custom_login( $args = array() )
 {
     $defaults = array(
         'echo' => true,
-        'redirect' => 'https://orphic.ca/soen341/login/',
+        'redirect' => 'https://orphic.ca/soen341/explore/',
         'form_id' => 'loginform',
         'label_username' => __('Username or Email Address'),
         'label_password' => __('Password'),

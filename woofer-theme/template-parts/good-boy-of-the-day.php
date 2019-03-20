@@ -29,7 +29,7 @@ if(is_user_logged_in()) :
     $autharr = array();
     $inarr = false;
     foreach($usersfollowing[0] as $user){
-        if($user == $userbest) {
+        if($user == $id) {
             $inarr = true;
         }
     }

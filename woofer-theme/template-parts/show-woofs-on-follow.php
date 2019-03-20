@@ -57,9 +57,29 @@ if(get_user_meta($currID, 'following', true)) :
                 }
             }
             if($inarr) : ?>
+            <div class="like-counter" id="like-counter">
+              <?php
+              $nblikes = get_post_meta(get_the_ID(),'nblikes',true);
+              if($nblikes){
+                echo $nblikes;
+              }else{
+                echo 0;
+              }
+              ?>
+            </div>
             <img src="<?php echo get_template_directory_uri()?>/images/bone-hollow.png" data-postid="<?php echo the_ID();?>" class="like" width="40px" height="40px" style="display:none;"></img>
             <img src="<?php echo get_template_directory_uri()?>/images/bone-filled.png" data-postid="<?php echo the_ID();?>" class="unlike" width="50px" height="25px" ></img>
             <?php else: ?>
+              <div class="like-counter" id="like-counter">
+                <?php
+                $nblikes = get_post_meta(get_the_ID(),'nblikes',true);
+                if($nblikes){
+                  echo $nblikes;
+                }else{
+                  echo 0;
+                }
+                ?>
+              </div>
             <img src="<?php echo get_template_directory_uri()?>/images/bone-hollow.png" data-postid="<?php echo the_ID();?>" class="like" width="40px" height="40px" ></img>
             <img src="<?php echo get_template_directory_uri()?>/images/bone-filled.png" data-postid="<?php echo the_ID();?>" class="unlike" width="50px" height="25px" style="display:none;"></img>
             <?php endif; ?>
