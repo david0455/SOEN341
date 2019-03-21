@@ -33,3 +33,15 @@ Social media has taken over the Internet in the recent years, and as a result, o
 - PHP
 - Travis CI
 - PHP CodeSniffer
+
+
+
+## Build installation instructions
+
+1. Install wordpress on a server or localhost ;
+2. Upload the latest build, woofer-theme.zip, under **appearance > themes**  ;
+3. Under **settings > permalinks** set the permalink structure to [siteurl].com/%postname%/
+4. Create 7 pages that have explore, following, liked, login, profile, register and user-profile as their page template ;
+5. Add the desired pages in the menu by going in **appearance > menu** and setting the menu placement to **left menu**.
+
+*Note : at 4 places in the theme files the server url is hardcoded. To properly use the register and login links in the navigation bar at the right, do a find/replace in the theme file for 'https://orphic.ca/soen341/' and replace for your site url*.
