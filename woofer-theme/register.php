@@ -30,7 +30,7 @@ elseif(defined('REGISTERED_A_USER')) {
 
   <label>
     Password:
-    <input type="text" name="pass" value=""/>
+    <input type="password" name="pass" value=""/>
   </label>
 
 
