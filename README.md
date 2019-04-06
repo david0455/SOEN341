@@ -7,11 +7,7 @@ Develop a Twitter-like web application with core features requested by users:
 - Follow a user
 
 *Additional Features*:
-- Direct messages between users 
-- Including hashtags in tweets and following hashtags
-- Tagging people in tweets
-- Implementing notifications for all of the above features
-- Post Videos/Pictures
+- Showcase best dog of the day
 - Profile Picture
 
 ## Project Description
@@ -29,10 +25,25 @@ Social media has taken over the Internet in the recent years, and as a result, o
 - Victor Tudoran | [VictorTudoran](https://github.com/VictorTudoran)
 - Wei-Cheng Su | [Weigiu](https://github.com/Weigiu)
 
-## Technologies/Resources (tentative)
+## Technologies/Resources
 - WordPress
 - HTML
 - CSS
 - JavaScript
 - PHP
-- Travis
+- Travis CI
+- PHP CodeSniffer
+
+
+
+## Build installation instructions
+
+1. Install WordPress on a server or localhost ;
+2. Upload the latest build, woofer-theme.zip, under **appearance > themes** in WordPress Admin ;
+3. Under **settings > permalinks** set the permalink structure to [siteurl].com/%postname%/ ;
+4. Create 7 pages that have explore, following, liked, login, profile, register and user-profile as their page template ;
+5. Add the desired pages in the menu by going in **appearance > menu** and setting the menu placement to **left menu**.
+
+*Note : At 4 places in the theme files the server url is hardcoded. To properly use the register and login links in the navigation bar at the right, do a find/replace in the theme file for 'https://orphic.ca/soen341/' and replace for your site url*.
+
+*Note : Landing page is made using a WordPress plugin called Elementor. When creating your WordPress site, create a landing page with the proper permalink redirecting to it in the Pages editor of WordPress Admin*.

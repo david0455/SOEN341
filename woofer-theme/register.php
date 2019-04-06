@@ -6,15 +6,19 @@
 *
 */
 get_header();
-  if(defined('REGISTRATION_ERROR'))
-    foreach(unserialize(REGISTRATION_ERROR) as $error)
-      echo "<div class=\"error\">{$error}</div>";
+if(defined('REGISTRATION_ERROR')) {
+    foreach(unserialize(REGISTRATION_ERROR) as $error) {
+        echo "<div class=\"error\">{$error}</div>";
+    }
+}
   // errors here, if any
 
-  elseif(defined('REGISTERED_A_USER'))
+elseif(defined('REGISTERED_A_USER')) {
     echo 'a email has been sent to '.REGISTERED_A_USER;
+}
 ?>
-<h1 style="margin:100px;">
+<div class="woof-main-content full">
+  <h1 class="woofer-page-title">
   Register
 </h1>
 
@@ -26,12 +30,13 @@ get_header();
 
   <label>
     Password:
-    <input type="text" name="pass" value=""/>
+    <input type="password" name="pass" value=""/>
   </label>
 
 
-  <input type="submit" value="register" />
+  <input type="submit" class="sub-btn bestwoof" value="register" />
 </form>
+</div>
 <?php
 get_footer();
 ?>

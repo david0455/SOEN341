@@ -4,9 +4,15 @@
 */
 get_header();
 ?>
+<div class="woof-main-content full">
+  <h1 class="woofer-page-title">
+    Woofs by people you tail
+  </h1>
+    <?php echo get_template_part('/template-parts/show-woofs-on-follow'); ?>
 
-<h1 style="margin:50px;">
-  Woofs by people you tail
-</h1>
+</div>
 
-<?php echo get_template_part( 'show-woofs-on-follow.php' ); ?>
+
+<?php
+get_footer();
+?>
